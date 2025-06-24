@@ -9,3 +9,4 @@ keybert
 sentence-transformers
 langchain
 scikit-learn
+pymupdf
