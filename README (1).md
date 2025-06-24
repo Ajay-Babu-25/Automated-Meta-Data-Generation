@@ -1,12 +1,12 @@
-# 📄 AutoMeta: AI-Powered Smart Metadata Generator
+#  AutoMeta: AI-Powered Smart Metadata Generator
 
 AutoMeta is a Streamlit application that takes a document (PDF, DOCX, or TXT) and automatically extracts and generates metadata like a **smart title**, **summary**, **keywords**, **word count**, and **document type** using state-of-the-art Natural Language Processing (NLP) techniques.
 
 ---
 
-## 🧱 Step-by-Step Breakdown (Code-Correlated)
+##  Step-by-Step Breakdown (Code-Correlated)
 
-### 1️⃣ 📦 Environment Setup
+### 1️) Environment Setup
 
 Install all required libraries:
 
@@ -14,14 +14,14 @@ Install all required libraries:
 pip install streamlit transformers keybert sentence-transformers PyMuPDF python-docx pytesseract pdf2image pyyaml
 ```
 
-📄 `requirements.txt` contains all these dependencies for Streamlit Cloud or local setup.
+ `requirements.txt` contains all these dependencies for Streamlit Cloud or local setup.
 
 ---
 
-### 2️⃣ 📁 Upload and Identify the Document
+### 2️) Upload and Identify the Document
 
 ```python
-uploaded = st.file_uploader("📤 Upload Document", type=["pdf", "docx", "txt"])
+uploaded = st.file_uploader(" Upload Document", type=["pdf", "docx", "txt"])
 ```
 
 - Users upload `.pdf`, `.docx`, or `.txt` files.
@@ -29,7 +29,7 @@ uploaded = st.file_uploader("📤 Upload Document", type=["pdf", "docx", "txt"])
 
 ---
 
-### 3️⃣ 📚 Document Text Extraction
+### 3️) Document Text Extraction
 
 ```python
 def extract_text_from_pdf(path): ...
@@ -44,7 +44,7 @@ def extract_text_via_ocr(path): ...
 
 ---
 
-### 4️⃣ 🔍 Summarization
+### 4️) Summarization
 
 ```python
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
@@ -56,7 +56,7 @@ summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
 ---
 
-### 5️⃣ 🏷️ Keyword Extraction
+### 5️) Keyword Extraction
 
 ```python
 kw_model = KeyBERT("sentence-transformers/all-MiniLM-L6-v2")
@@ -67,7 +67,7 @@ kw_model = KeyBERT("sentence-transformers/all-MiniLM-L6-v2")
 
 ---
 
-### 6️⃣ 🧠 Title Generation
+### 6️) Title Generation
 
 ```python
 title_model = T5ForConditionalGeneration.from_pretrained("MBZUAI/LaMini-Flan-T5-248M")
@@ -79,7 +79,7 @@ title_model = T5ForConditionalGeneration.from_pretrained("MBZUAI/LaMini-Flan-T5-
 
 ---
 
-### 7️⃣ 🛠 Metadata Construction
+### 7️) Metadata Construction
 
 ```python
 metadata = {
@@ -95,7 +95,7 @@ Combines all outputs into a structured metadata dictionary.
 
 ---
 
-### 8️⃣ 📤 Display and Download Metadata
+### 8️) Display and Download Metadata
 
 ```python
 st.json(metadata)
@@ -109,7 +109,7 @@ st.code(yaml.dump(...))
 
 ---
 
-### 9️⃣ 📖 Show Extracted Text
+### 9️) Show Extracted Text
 
 ```python
 with st.expander("📖 FULL TEXT EXTRACTED"):
@@ -120,31 +120,31 @@ Provides visibility into raw text extracted.
 
 ---
 
-## 🧪 Full Processing Pipeline
+##  Full Processing Pipeline
 
 ```
-📤 Upload File
-   ⬇
-🧠 Identify Format (PDF/DOCX/TXT)
-   ⬇
-📜 Extract Text (PyMuPDF / docx / OCR)
-   ⬇
-📝 Summarize Text (chunked → BART)
-   ⬇
-🏷 Extract Keywords (KeyBERT)
-   ⬇
-🧠 Generate Title (LaMini-Flan-T5)
-   ⬇
-🧾 Build Metadata Object
-   ⬇
-📋 Display: JSON, YAML, Full Text
-   ⬇
-💾 Download JSON Metadata
+ Upload File
+    ⬇
+ Identify Format (PDF/DOCX/TXT)
+    ⬇
+ Extract Text (PyMuPDF / docx / OCR)
+    ⬇
+ Summarize Text (chunked → BART)
+    ⬇
+ Extract Keywords (KeyBERT)
+    ⬇
+ Generate Title (LaMini-Flan-T5)
+    ⬇
+ Build Metadata Object
+    ⬇
+ Display: JSON, YAML, Full Text
+    ⬇
+ Download JSON Metadata
 ```
 
 ---
 
-## 💻 How to Run Locally
+##  How to Run Locally
 
 ```bash
 streamlit run streamlit_app.py
@@ -152,7 +152,7 @@ streamlit run streamlit_app.py
 
 ---
 
-## 🌐 How to Deploy on Streamlit Cloud
+##  How to Deploy on Streamlit Cloud
 
 1. Push the repo to GitHub.
 2. Go to [streamlit.io/cloud](https://streamlit.io/cloud).
@@ -164,7 +164,7 @@ streamlit run streamlit_app.py
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - Add download button for YAML
 - Add EPUB/HTML support
@@ -173,7 +173,7 @@ streamlit run streamlit_app.py
 
 ---
 
-## 📚 Credits
+##  Credits
 
 - Summarization: [`facebook/bart-large-cnn`](https://huggingface.co/facebook/bart-large-cnn)
 - Title generation: [`MBZUAI/LaMini-Flan-T5-248M`](https://huggingface.co/MBZUAI/LaMini-Flan-T5-248M)
@@ -181,6 +181,6 @@ streamlit run streamlit_app.py
 
 ---
 
-## 📝 License
+##  License
 
 MIT License.
