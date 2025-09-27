@@ -46,6 +46,7 @@ def summarize_long_text(text, chunk_size=1000, max_chunks=5):
         summaries.append(result[0]['summary_text'])
     return " ".join(summaries)
 #commenting 
+#again commenting
 # Metadata Generator
 def generate_metadata(text, doc_type="Unknown"):
     # Generate summary
