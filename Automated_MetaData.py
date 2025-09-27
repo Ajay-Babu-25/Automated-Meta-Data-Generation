@@ -45,14 +45,14 @@ def summarize_long_text(text, chunk_size=1000, max_chunks=5):
         result = summarizer(chunk, max_length=130, min_length=30, do_sample=False)
         summaries.append(result[0]['summary_text'])
     return " ".join(summaries)
-
+#commenting 
 # Metadata Generator
 def generate_metadata(text, doc_type="Unknown"):
     # Generate summary
     summary = summarize_long_text(text)
-    
-    # Generate title (via summarizer)
     title_prompt = "Generate a title for the following document: " + text[:1000]
+    # Generate title (via summarizer)
+    
     title_result = summarizer(title_prompt, max_length=15, min_length=4, do_sample=False)
     title = title_result[0]["summary_text"].strip().upper()
     
