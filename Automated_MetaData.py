@@ -69,9 +69,9 @@ def generate_metadata(text, doc_type="Unknown"):
         "DOCUMENT_TYPE": doc_type,
         "WORD_COUNT": len(text.split())
     }
-
-# UI Layout
 st.set_page_config(page_title="AutoMeta Metadata Generator", layout="wide")
+# UI Layout
+
 
 with st.container():
     st.markdown("""
